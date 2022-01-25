@@ -22,6 +22,7 @@ public class spawnManager : MonoBehaviour
 
     }
 
+    // spawn the enemy on the map.
     private IEnumerator spawnEnemy()
     {
         while (_isPlayerAlive)
@@ -57,6 +58,7 @@ public class spawnManager : MonoBehaviour
         }
     }
 
+    // spawn the speed , tripleShot and shield power-ups
     private IEnumerator spawnPowerUp()
     {
         while (_isPlayerAlive)

@@ -6,9 +6,13 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private Text _scoreText;
+    [SerializeField] private Text _gameOverScore;
+    [SerializeField] private GameObject _gameOverText;
     [SerializeField] private playerMovement _player;
     [SerializeField] private Sprite[] _livesSprits;
     [SerializeField] private SpriteRenderer _spriteRender;
+    [SerializeField] private GameObject _gameOverPanel;
+    private bool _isGameOver = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +44,23 @@ public class UIManager : MonoBehaviour
         _spriteRender.sprite = _livesSprits[_player.numberOfLives()];
     }
 
+    public void gameOverScreen()
+    {
+        _isGameOver = true;
+        StartCoroutine(gameOverFlicker());
+        _gameOverPanel.SetActive(true);
+        _gameOverScore.text = "Score: " + _player.currentScore().ToString();
+    }
 
+    private IEnumerator gameOverFlicker()
+    {
+        while (_isGameOver)
+        {
+            _gameOverText.SetActive(false);
+            yield return new WaitForSeconds(0.5f);
+            _gameOverText.SetActive(true);
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
 
 }

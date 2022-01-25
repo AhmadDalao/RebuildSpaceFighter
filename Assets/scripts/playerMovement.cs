@@ -8,6 +8,7 @@ public class playerMovement : MonoBehaviour
     [SerializeField] private float _moveSpeed = 8f;
     [SerializeField] private GameObject _myLaserPrefab;
     [SerializeField] private spawnManager _spawnManager;
+    [SerializeField] private UIManager _UIManager;
     [SerializeField] private GameObject _playerShield;
     [SerializeField] private GameObject _tripleShotPowerUp;
     private float _horizontalMovement;
@@ -25,6 +26,25 @@ public class playerMovement : MonoBehaviour
     {
         // position the player at the specified starting position once the game run.
         transform.Translate(new Vector3(0, -3f, 0));
+
+        // null checking for the UI manager
+        if (_UIManager != null)
+        {
+            _UIManager.gameObject.GetComponent<UIManager>();
+        }
+        else
+        {
+            Debug.Log("playerMovement.cs UIManager is missing");
+        }
+        // null checking for the spawn manager
+        if (_spawnManager != null)
+        {
+            _spawnManager.gameObject.GetComponent<spawnManager>();
+        }
+        else
+        {
+            Debug.Log("playerMovement.cs _spawnManager is missing");
+        }
     }
 
     // Update is called once per frame
@@ -123,7 +143,10 @@ public class playerMovement : MonoBehaviour
             Debug.Log("number of lives is::=== " + _playerLives);
             if (_playerLives == 0)
             {
+                _UIManager.gameOverScreen();
+                // destroy enemies and power-ups since player is dead.
                 _spawnManager.playerDead();
+                // destroy the player game object.
                 Destroy(this.gameObject);
             }
         }
