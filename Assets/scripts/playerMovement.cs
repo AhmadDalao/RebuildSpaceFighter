@@ -9,6 +9,7 @@ public class playerMovement : MonoBehaviour
     [SerializeField] private GameObject _myLaserPrefab;
     [SerializeField] private spawnManager _spawnManager;
     [SerializeField] private UIManager _UIManager;
+    [SerializeField] private AudioManager _AudioManager;
     [SerializeField] private GameObject _playerShield;
     [SerializeField] private GameObject _tripleShotPowerUp;
     private float _horizontalMovement;
@@ -36,6 +37,7 @@ public class playerMovement : MonoBehaviour
         {
             Debug.Log("playerMovement.cs UIManager is missing");
         }
+
         // null checking for the spawn manager
         if (_spawnManager != null)
         {
@@ -44,6 +46,16 @@ public class playerMovement : MonoBehaviour
         else
         {
             Debug.Log("playerMovement.cs _spawnManager is missing");
+        }
+
+        // null check audio manager
+        if (_AudioManager != null)
+        {
+            _AudioManager.gameObject.GetComponent<AudioManager>();
+        }
+        else
+        {
+            Debug.Log("playerMovement.cs AudioManager is missing");
         }
     }
 
@@ -56,6 +68,9 @@ public class playerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && Time.time > _lastFire)
         {
             _lastFire = _fireRate + Time.time;
+
+            // play laser sound.
+            _AudioManager.laserSound();
             laserFire();
         }
 
@@ -146,6 +161,8 @@ public class playerMovement : MonoBehaviour
                 _UIManager.gameOverScreen();
                 // destroy enemies and power-ups since player is dead.
                 _spawnManager.playerDead();
+                //  play explosion sound on player death.
+                _AudioManager.explosionSound();
                 // destroy the player game object.
                 Destroy(this.gameObject);
             }

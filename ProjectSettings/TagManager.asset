@@ -13,6 +13,7 @@ TagManager:
   - powerups
   - player_shield
   - health
+  - AudioManager
   layers:
   - Default
   - TransparentFX

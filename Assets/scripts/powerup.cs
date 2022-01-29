@@ -8,12 +8,20 @@ public class powerup : MonoBehaviour
     private float _moveSpeed = 5f;
     [SerializeField] private int powerUpNumber;
     private playerMovement _player;
+    private AudioManager _audioManager;
     void Start()
     {
+        // null checking player object.
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<playerMovement>();
         if (_player == null)
         {
             Debug.Log("powerup.cs missing player reference");
+        }
+        // null checking audio manager.
+        _audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
+        if (_audioManager == null)
+        {
+            Debug.Log("powerup.cs::==>>> AudioManager is missing");
         }
     }
 
@@ -33,6 +41,8 @@ public class powerup : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            // power up sound on pick up.
+            _audioManager.powerUpSound();
             Destroy(this.gameObject);
             switch (powerUpNumber)
             {
