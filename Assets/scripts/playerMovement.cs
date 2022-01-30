@@ -21,6 +21,7 @@ public class playerMovement : MonoBehaviour
     private bool _speedUpActice = false;
     private bool _isShieldActice = false;
     private bool _isTripleShotActive = false;
+    private bool _isDoubleScoreActive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -139,9 +140,18 @@ public class playerMovement : MonoBehaviour
 
     public void playerScore()
     {
-        _score += 10;
+        if (_isDoubleScoreActive)
+        {
+            _score += 20;
+            Debug.Log("you got 20 points since the score is doubled now ==>>> " + _score);
+        }
+        else
+        {
+            _score += 10;
+        }
         Debug.Log("score:: ===>>> " + _score);
     }
+
     public int currentScore()
     {
         return _score;
@@ -235,6 +245,23 @@ public class playerMovement : MonoBehaviour
         {
             _playerLives++;
             Debug.Log("number of lives is::=== " + _playerLives);
+        }
+    }
+
+    public void doublePlayerScore()
+    {
+        _isDoubleScoreActive = true;
+        _UIManager.doubleScoreTextActive();
+        StartCoroutine(doublePlayerScoreRoutine());
+    }
+
+    private IEnumerator doublePlayerScoreRoutine()
+    {
+        while (_isDoubleScoreActive)
+        {
+            yield return new WaitForSeconds(10f);
+            _isDoubleScoreActive = false;
+            _UIManager.doubleScoreTextDisabled();
         }
     }
 

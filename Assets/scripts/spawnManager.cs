@@ -64,7 +64,7 @@ public class spawnManager : MonoBehaviour
         while (_isPlayerAlive)
         {
             Vector3 powerUpPosition = new Vector3(Random.Range(-9f, 9f), 8f, 0);
-            int randomPowerUp = (int)Random.Range(0f, 3f);
+            int randomPowerUp = (int)Random.Range(0f, 4f);
             Debug.Log("the power up picked is " + randomPowerUp);
             Instantiate(_powerups[randomPowerUp], powerUpPosition, Quaternion.identity);
             yield return new WaitForSeconds(Random.Range(5f, 10f));
@@ -77,7 +77,7 @@ public class spawnManager : MonoBehaviour
         while (_isPlayerAlive)
         {
             Vector3 healthPosition = new Vector3(Random.Range(-9f, 9f), 8f, 0);
-            Instantiate(_powerups[3], healthPosition, Quaternion.identity);
+            Instantiate(_powerups[_powerups.Length - 1], healthPosition, Quaternion.identity);
             yield return new WaitForSeconds(Random.Range(5f, 10f));
         }
     }

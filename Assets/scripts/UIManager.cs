@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private Text _scoreText;
+    [SerializeField] private GameObject _doubleScoreText;
     [SerializeField] private Text _gameOverScore;
     [SerializeField] private GameObject _gameOverText;
     [SerializeField] private playerMovement _player;
@@ -13,6 +14,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private SpriteRenderer _spriteRender;
     [SerializeField] private GameObject _gameOverPanel;
     private bool _isGameOver = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,6 +63,16 @@ public class UIManager : MonoBehaviour
             _gameOverText.SetActive(true);
             yield return new WaitForSeconds(0.5f);
         }
+    }
+
+    public void doubleScoreTextActive()
+    {
+        _doubleScoreText.SetActive(true);
+    }
+
+    public void doubleScoreTextDisabled()
+    {
+        _doubleScoreText.SetActive(false);
     }
 
 }
