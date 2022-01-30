@@ -38,9 +38,10 @@ public class enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-
         if (other.tag == "laser")
         {
+            // slow the enemy on impact
+            _moveSpeedEnemy = 0f;
             // destroy the laser
             Destroy(other.gameObject);
             // play explosion sound after killing the enemy.
@@ -61,7 +62,6 @@ public class enemy : MonoBehaviour
             // damage the player
             _player.playerTakeDamage();
         }
-
     }
 
 }
