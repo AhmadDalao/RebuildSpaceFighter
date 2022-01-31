@@ -38,10 +38,11 @@ public class enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        // slow the enemy on impact
+        _moveSpeedEnemy = 0f;
         if (other.tag == "laser")
         {
-            // slow the enemy on impact
-            _moveSpeedEnemy = 0f;
+            explosionParticle();
             // destroy the laser
             Destroy(other.gameObject);
             // play explosion sound after killing the enemy.
@@ -49,19 +50,30 @@ public class enemy : MonoBehaviour
             // add 10 points to the score using script communcation;
             _player.playerScore();
             // destroy the enemy gameObject
-            Destroy(this.gameObject, 0.1f);
+            Destroy(this.gameObject, 1f);
         }
 
         if (other.tag == "Player")
         {
+            explosionParticle();
             Debug.Log("enemy hit the player");
             // play explosion sound after killing the enemy.
             _audioManager.explosionSound();
-            // destroy the enemy gameObject.
-            Destroy(this.gameObject);
             // damage the player
             _player.playerTakeDamage();
+            // destroy the enemy gameObject.
+            Destroy(this.gameObject, 1f);
         }
+    }
+
+    private void explosionParticle()
+    {
+        // find the particle child and set it to active to display explosion
+        Transform explisionParticle = this.gameObject.transform.GetChild(0);
+        // set the particle active
+        explisionParticle.gameObject.SetActive(true);
+        // remove the the collision to prevent damaging the player twice.
+        Destroy(this.gameObject.GetComponent<BoxCollider2D>());
     }
 
 }
