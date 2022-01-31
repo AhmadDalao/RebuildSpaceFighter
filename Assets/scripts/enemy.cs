@@ -39,7 +39,6 @@ public class enemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         // slow the enemy on impact
-        _moveSpeedEnemy = 0f;
         if (other.tag == "laser")
         {
             explosionParticle();
@@ -68,6 +67,7 @@ public class enemy : MonoBehaviour
 
     private void explosionParticle()
     {
+        _moveSpeedEnemy = 0f;
         // find the particle child and set it to active to display explosion
         Transform explisionParticle = this.gameObject.transform.GetChild(0);
         // set the particle active

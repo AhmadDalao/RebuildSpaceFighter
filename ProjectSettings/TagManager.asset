@@ -4,17 +4,16 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - enemy
-  - laser
-  - speed_powerup
-  - shield_powerup
-  - tripleShot_powerup
-  - tripleShot
-  - powerups
+  - Shootable
   - player_shield
-  - health
   - AudioManager
+  - enemy
+  - powerups
+  - shield_powerup
   - doubleScore_powerup
+  - health
+  - laser
+  - tripleShot
   layers:
   - Default
   - TransparentFX
@@ -24,9 +23,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Lighting
+  - Ground
+  - Postprocessing
   - 
   - 
   - 
@@ -49,12 +48,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Fire
+    uniqueID: 3804908061
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: background
-    uniqueID: 1514468525
+    uniqueID: 314925471
     locked: 0
   - name: foreground
-    uniqueID: 2583681347
+    uniqueID: 2697113797
     locked: 0
