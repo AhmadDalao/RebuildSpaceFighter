@@ -99,6 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeedEnemy: 3
+  _enemyLaser: {fileID: 8570578987946017380, guid: 464a7aa955eb71048960e8ed9b96b7e0,
+    type: 3}
 --- !u!50 &5234185255288423620
 Rigidbody2D:
   serializedVersion: 4

@@ -7,9 +7,23 @@ public class enemy : MonoBehaviour
     [SerializeField] private float _moveSpeedEnemy = 3f;
     private playerMovement _player;
     private AudioManager _audioManager;
+    [SerializeField] private GameObject _enemyLaser;
+    private bool _isEnemyAlive = true;
+
     // Start is called before the first frame update
     void Start()
     {
+        // null check the enemy laser prefab.
+        if (_enemyLaser != null)
+        {
+            // start enemy laser coroutine
+            StartCoroutine(enemyLaserCoroutine());
+        }
+        else
+        {
+            Debug.Log("enemy.cs::==>>>  enemy laser is missing");
+        }
+
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<playerMovement>();
         if (_player == null)
         {
@@ -21,6 +35,9 @@ public class enemy : MonoBehaviour
         {
             Debug.Log("enemy.cs::==>>> AudioManager is missing");
         }
+
+
+
     }
 
     // Update is called once per frame
@@ -48,6 +65,8 @@ public class enemy : MonoBehaviour
             _audioManager.explosionSound();
             // add 10 points to the score using script communcation;
             _player.playerScore();
+            // calling this function will stop the enemy from firing laser.
+            enemyHasBeenDestroyed();
             // destroy the enemy gameObject
             Destroy(this.gameObject, 1f);
         }
@@ -60,6 +79,8 @@ public class enemy : MonoBehaviour
             _audioManager.explosionSound();
             // damage the player
             _player.playerTakeDamage();
+            // calling this function will stop the enemy from firing laser.
+            enemyHasBeenDestroyed();
             // destroy the enemy gameObject.
             Destroy(this.gameObject, 1f);
         }
@@ -74,6 +95,27 @@ public class enemy : MonoBehaviour
         explisionParticle.gameObject.SetActive(true);
         // remove the the collision to prevent damaging the player twice.
         Destroy(this.gameObject.GetComponent<BoxCollider2D>());
+    }
+
+
+    private IEnumerator enemyLaserCoroutine()
+    {
+        while (_isEnemyAlive)
+        {
+            Vector3 _enemyPosition = new Vector3(transform.position.x, transform.position.y, 0);
+            Vector3 _enemyDirection = this.transform.forward;
+            Quaternion _enemyRotation = this.transform.rotation;
+            float spawnDistance = 1f;
+            Vector3 spawnPosition = _enemyPosition + _enemyDirection * spawnDistance;
+            //  Vector3 enemyPosition = new Vector3(transform.position.x, transform.position.y * 0.02f, 0f);
+            Instantiate(_enemyLaser, spawnPosition, _enemyRotation);
+            yield return new WaitForSeconds(2f);
+        }
+    }
+
+    private void enemyHasBeenDestroyed()
+    {
+        _isEnemyAlive = false;
     }
 
 }
