@@ -102,13 +102,8 @@ public class enemy : MonoBehaviour
     {
         while (_isEnemyAlive)
         {
-            Vector3 _enemyPosition = new Vector3(transform.position.x, transform.position.y, 0);
-            Vector3 _enemyDirection = this.transform.forward;
-            Quaternion _enemyRotation = this.transform.rotation;
-            float spawnDistance = 1f;
-            Vector3 spawnPosition = _enemyPosition + _enemyDirection * spawnDistance;
-            //  Vector3 enemyPosition = new Vector3(transform.position.x, transform.position.y * 0.02f, 0f);
-            Instantiate(_enemyLaser, spawnPosition, _enemyRotation);
+            Vector3 enemyPosition = new Vector3(transform.position.x, transform.position.y * 0.02f, 0f);
+            Instantiate(_enemyLaser, enemyPosition, Quaternion.identity);
             yield return new WaitForSeconds(2f);
         }
     }

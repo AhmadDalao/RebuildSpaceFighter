@@ -5,10 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour
 {
+    private bool _hasGameStarted = false;
+    [SerializeField] private spawnManager _spawnManager;
     // Start is called before the first frame update
     void Start()
     {
-
+        _spawnManager = GameObject.Find("spawnManager").GetComponent<spawnManager>();
+        if (_spawnManager == null)
+        {
+            Debug.Log("spawnManager.cs::==>> _spawnManager is missing");
+        }
     }
 
     // Update is called once per frame
@@ -40,5 +46,12 @@ public class gameManager : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
+
+    public void hasGameStarted()
+    {
+        _spawnManager.gameStarted();
+    }
+
+
 
 }
