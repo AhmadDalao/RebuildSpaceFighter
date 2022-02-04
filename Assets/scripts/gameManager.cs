@@ -38,6 +38,7 @@ public class gameManager : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Time.timeScale = 1;
         }
     }
 
