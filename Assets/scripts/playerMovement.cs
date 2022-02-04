@@ -12,6 +12,7 @@ public class playerMovement : MonoBehaviour
     [SerializeField] private AudioManager _AudioManager;
     [SerializeField] private GameObject _playerShield;
     [SerializeField] private GameObject _tripleShotPowerUp;
+    [SerializeField] private gameManager _gameManager;
     private float _horizontalMovement;
     private float _verticalMovement;
     private float _lastFire;
@@ -58,6 +59,16 @@ public class playerMovement : MonoBehaviour
         {
             Debug.Log("playerMovement.cs AudioManager is missing");
         }
+
+        // null check game manager.
+        if (_gameManager != null)
+        {
+            _gameManager.gameObject.GetComponent<gameManager>();
+        }
+        else
+        {
+            Debug.Log("playerMovement.cs gameManager is missing");
+        }
     }
 
     // Update is called once per frame
@@ -66,7 +77,8 @@ public class playerMovement : MonoBehaviour
         playerMove();
         // the space key will shot the laser
         // after adding the cooldown system to prevent the player from spamming.
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time > _lastFire)
+        // checking time scale will prevent player from shooting while game is paused
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > _lastFire && Time.timeScale == 1)
         {
             _lastFire = _fireRate + Time.time;
 
@@ -87,6 +99,12 @@ public class playerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             transform.position = new Vector3(transform.position.x - 3f, transform.position.y, 0);
+        }
+
+        // show the pause menu screen.
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            _gameManager.displayPauseScreen();
         }
 
     }

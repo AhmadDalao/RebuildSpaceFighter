@@ -53,4 +53,14 @@ public class AudioManager : MonoBehaviour
         _audioSource.Play();
     }
 
+    public void pauseBackgroundMusic()
+    {
+        _backgroundMusic.GetComponent<AudioSource>().Pause();
+    }
+
+    public void playBackgroundMusic()
+    {
+        _backgroundMusic.GetComponent<AudioSource>().Play();
+    }
+
 }

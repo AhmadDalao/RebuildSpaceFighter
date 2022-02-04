@@ -452,6 +452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnManager: {fileID: 0}
+  _pauseScreen: {fileID: 0}
 --- !u!1 &659863249
 GameObject:
   m_ObjectHideFlags: 0
@@ -1394,6 +1395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnManager: {fileID: 1005228474}
+  _pauseScreen: {fileID: 1527083189}
 --- !u!4 &1283144662
 Transform:
   m_ObjectHideFlags: 0
@@ -1826,6 +1828,7 @@ MonoBehaviour:
   _playerShield: {fileID: 675572844}
   _tripleShotPowerUp: {fileID: 9017757158631274558, guid: ebafd0da5386c004b8522a3027edb6db,
     type: 3}
+  _gameManager: {fileID: 1283144661}
 --- !u!212 &1569735655
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2040,6 +2043,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnManager: {fileID: 0}
+  _pauseScreen: {fileID: 0}
 --- !u!1 &1656312426
 GameObject:
   m_ObjectHideFlags: 0
