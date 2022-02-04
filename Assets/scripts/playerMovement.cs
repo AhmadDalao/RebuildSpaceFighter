@@ -163,6 +163,8 @@ public class playerMovement : MonoBehaviour
         {
             // player lose 1 live per damage taken
             _playerLives--;
+            // player hurt sound
+            _AudioManager.playerTakingDamageSound();
             // player loses 10 points upon taking damage..
             playerDeductScore();
             Debug.Log("number of lives is::=== " + _playerLives);
@@ -173,6 +175,7 @@ public class playerMovement : MonoBehaviour
                 _spawnManager.playerDead();
                 //  play explosion sound on player death.
                 _AudioManager.explosionSound();
+                _AudioManager.stopBackgroundMusic();
                 // destroy the player game object.
                 Destroy(this.gameObject);
             }

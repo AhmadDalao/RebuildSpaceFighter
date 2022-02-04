@@ -7,6 +7,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip _laserSound;
     [SerializeField] private AudioClip _explosionSound;
     [SerializeField] private AudioClip _powerUpSound;
+    [SerializeField] private AudioClip _playerHurtSound;
+    [SerializeField] private GameObject _backgroundMusic;
     private AudioSource _audioSource;
     // Start is called before the first frame update
     void Start()
@@ -37,6 +39,17 @@ public class AudioManager : MonoBehaviour
     public void powerUpSound()
     {
         _audioSource.clip = _powerUpSound;
+        _audioSource.Play();
+    }
+
+    public void stopBackgroundMusic()
+    {
+        _backgroundMusic.GetComponent<AudioSource>().Stop();
+    }
+
+    public void playerTakingDamageSound()
+    {
+        _audioSource.clip = _playerHurtSound;
         _audioSource.Play();
     }
 
