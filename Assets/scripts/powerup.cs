@@ -59,7 +59,7 @@ public class powerup : MonoBehaviour
                     _player.addHealthPowerUp();
                     break;
                 case 4:
-                    _player.doublePlayerScore();
+                    _player.doublePlayerScore(Random.Range(1, 11));
                     break;
                 default:
                     Debug.Log("no powerUp detected");

@@ -13,6 +13,7 @@ public class playerMovement : MonoBehaviour
     [SerializeField] private GameObject _playerShield;
     [SerializeField] private GameObject _tripleShotPowerUp;
     [SerializeField] private gameManager _gameManager;
+    [SerializeField] private GameObject _settingScreen;
     private float _horizontalMovement;
     private float _verticalMovement;
     private float _lastFire;
@@ -23,6 +24,7 @@ public class playerMovement : MonoBehaviour
     private bool _isShieldActice = false;
     private bool _isTripleShotActive = false;
     private bool _isDoubleScoreActive = false;
+    private int _playerScoreDoubledBy;
 
     // Start is called before the first frame update
     void Start()
@@ -105,6 +107,13 @@ public class playerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             _gameManager.displayPauseScreen();
+            _UIManager.settingScreenClose();
+        }
+
+        // use backspace button to close the settings screen. if it's active
+        if (Input.GetKeyDown(KeyCode.Backspace) && _settingScreen.activeInHierarchy)
+        {
+            _UIManager.settingScreenClose();
         }
 
     }
@@ -156,16 +165,16 @@ public class playerMovement : MonoBehaviour
         }
     }
 
-    public void playerScore()
+    public void playerScore(int doubledBy)
     {
         if (_isDoubleScoreActive)
         {
-            _score += 20;
-            Debug.Log("you got 20 points since the score is doubled now ==>>> " + _score);
+            _score += doubledBy;
+            Debug.Log(" the score is doubled now ==>>> " + _score);
         }
         else
         {
-            _score += 10;
+            _score += 1;
         }
         Debug.Log("score:: ===>>> " + _score);
     }
@@ -209,7 +218,7 @@ public class playerMovement : MonoBehaviour
     {
         if (_score != 0)
         {
-            _score -= 10;
+            _score -= 1;
         }
         else
         {
@@ -269,11 +278,17 @@ public class playerMovement : MonoBehaviour
         }
     }
 
-    public void doublePlayerScore()
+    public void doublePlayerScore(int doubledBy)
     {
+        _playerScoreDoubledBy = doubledBy;
         _isDoubleScoreActive = true;
-        _UIManager.doubleScoreTextActive();
+        _UIManager.doubleScoreTextActive(doubledBy);
         StartCoroutine(doublePlayerScoreRoutine());
+    }
+
+    public int playerScoreIsDoubledBy()
+    {
+        return _playerScoreDoubledBy;
     }
 
     private IEnumerator doublePlayerScoreRoutine()

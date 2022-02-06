@@ -13,6 +13,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Sprite[] _livesSprits;
     [SerializeField] private SpriteRenderer _spriteRender;
     [SerializeField] private GameObject _gameOverPanel;
+    [SerializeField] private GameObject _settingScreen;
+    [SerializeField] private Button _settingsButtonPauseScreen;
+    [SerializeField] private Button _backButtonSettingScreen;
     private bool _isGameOver = false;
 
     // Start is called before the first frame update
@@ -35,6 +38,14 @@ public class UIManager : MonoBehaviour
         {
             _spriteRender.gameObject.GetComponent<SpriteRenderer>();
         }
+
+        // attach listener to the settings button on pause screen.
+        Button settingsPage = _settingsButtonPauseScreen.GetComponent<Button>();
+        settingsPage.onClick.AddListener(settingScreen);
+
+        // attach listener to the settings button on settings screen.
+        Button closeSettingPage = _backButtonSettingScreen.GetComponent<Button>();
+        closeSettingPage.onClick.AddListener(settingScreenClose);
     }
 
     // Update is called once per frame
@@ -65,14 +76,25 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void doubleScoreTextActive()
+    public void doubleScoreTextActive(int doubledBy)
     {
         _doubleScoreText.SetActive(true);
+        _doubleScoreText.gameObject.GetComponent<Text>().text = "Score " + doubledBy.ToString() + "x";
     }
 
     public void doubleScoreTextDisabled()
     {
         _doubleScoreText.SetActive(false);
+    }
+
+    private void settingScreen()
+    {
+        _settingScreen.SetActive(true);
+    }
+
+    public void settingScreenClose()
+    {
+        _settingScreen.SetActive(false);
     }
 
 }

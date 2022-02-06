@@ -64,7 +64,7 @@ public class enemy : MonoBehaviour
             // play explosion sound after killing the enemy.
             _audioManager.explosionSound();
             // add 10 points to the score using script communcation;
-            _player.playerScore();
+            _player.playerScore(_player.playerScoreIsDoubledBy());
             // calling this function will stop the enemy from firing laser.
             enemyHasBeenDestroyed();
             // destroy the enemy gameObject

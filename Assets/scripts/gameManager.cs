@@ -48,7 +48,6 @@ public class gameManager : MonoBehaviour
         Application.Quit();
     }
 
-
     // play game from main menu 
     public void playGameButton()
     {
@@ -80,7 +79,6 @@ public class gameManager : MonoBehaviour
             unPauseGame();
         }
     }
-
 
     private void pauseGame()
     {
