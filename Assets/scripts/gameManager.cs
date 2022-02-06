@@ -51,13 +51,13 @@ public class gameManager : MonoBehaviour
     }
 
     // Quit the game on button click.
-    public void quitGameButton()
+    public static void quitGameButton()
     {
         Application.Quit();
     }
 
     // play game from main menu 
-    public void playGameButton()
+    public static void playGameButton()
     {
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {

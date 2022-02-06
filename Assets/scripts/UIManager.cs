@@ -25,10 +25,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Button _resumeButtonFromPause;
 
     private bool _isGameOver = false;
+    private Button _playButtonFromMenu;
 
     // Start is called before the first frame update
     void Start()
     {
+        // null check _player.
         if (_player == null)
         {
             Debug.Log("UIManager.cs :: ====>>>> playerMovement is missing");
@@ -38,6 +40,7 @@ public class UIManager : MonoBehaviour
             _player.gameObject.GetComponent<playerMovement>();
         }
 
+        // null check _spriteRender.
         if (_spriteRender == null)
         {
             Debug.Log("UIManager.cs :: ====>>>> spriteRender is missing");
@@ -48,7 +51,6 @@ public class UIManager : MonoBehaviour
         }
 
         // null check UIManager.
-        // _UIManager = GameObject.Find("UI_Manager").GetComponent<UIManager>();
         if (_gameManager == null)
         {
             Debug.Log("UIManager.cs ::==>> gameManager is missing");
@@ -59,32 +61,25 @@ public class UIManager : MonoBehaviour
         }
 
         // attach listener to the settings button on pause screen.
-        Button settingsPage = _settingsButtonPauseScreen.GetComponent<Button>();
-        settingsPage.onClick.AddListener(settingScreen);
+        _settingsButtonPauseScreen.GetComponent<Button>().onClick.AddListener(settingScreen);
 
         // attach listener to the settings button on settings screen.
-        Button closeSettingPage = _backButtonSettingScreen.GetComponent<Button>();
-        closeSettingPage.onClick.AddListener(settingScreenClose);
+        _backButtonSettingScreen.GetComponent<Button>().onClick.AddListener(settingScreenClose);
 
         // attach listener to play agin button from game over screen.
-        Button playAgainGameOverScreen = _playAgainButton.GetComponent<Button>();
-        playAgainGameOverScreen.onClick.AddListener(_gameManager.playAgainButton);
+        _playAgainButton.GetComponent<Button>().onClick.AddListener(_gameManager.playAgainButton);
 
         // attach listener to quit game button from game over screen.
-        Button quitGameFromGameOverScreen = _quitGameButton.GetComponent<Button>();
-        quitGameFromGameOverScreen.onClick.AddListener(_gameManager.quitGameButton);
+        _quitGameButton.GetComponent<Button>().onClick.AddListener(gameManager.quitGameButton);
 
         // attach listener to quit game button from paused game screen.
-        Button quitGameFromPause = _quitGameFromPause.GetComponent<Button>();
-        quitGameFromPause.onClick.AddListener(_gameManager.quitGameButton);
+        _quitGameFromPause.GetComponent<Button>().onClick.AddListener(gameManager.quitGameButton);
 
         // attach listener to restart game button from paused game screen.
-        Button restartFromPause = _restartButtonFromPause.GetComponent<Button>();
-        restartFromPause.onClick.AddListener(_gameManager.playAgainButton);
+        _restartButtonFromPause.GetComponent<Button>().onClick.AddListener(_gameManager.playAgainButton);
 
         // attach listener to resume game button from paused game screen.
-        Button resumeFromPause = _resumeButtonFromPause.GetComponent<Button>();
-        resumeFromPause.onClick.AddListener(_gameManager.displayPauseScreen);
+        _resumeButtonFromPause.GetComponent<Button>().onClick.AddListener(_gameManager.displayPauseScreen);
 
     }
 
