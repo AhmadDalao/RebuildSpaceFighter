@@ -478,7 +478,6 @@ GameObject:
   - component: {fileID: 468550315}
   - component: {fileID: 468550314}
   - component: {fileID: 468550313}
-  - component: {fileID: 468550316}
   m_Layer: 5
   m_Name: playAgainButton
   m_TagString: Untagged
@@ -549,19 +548,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 468550314}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 468550316}
-        m_TargetAssemblyTypeName: gameManager, Assembly-CSharp
-        m_MethodName: playAgainButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &468550314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -600,21 +587,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 468550311}
   m_CullTransparentMesh: 1
---- !u!114 &468550316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 468550311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b30306d8b2126764a9a7c76c4709cc3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawnManager: {fileID: 0}
-  _AudioManager: {fileID: 0}
-  _UIManager: {fileID: 0}
 --- !u!1 &659863249
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,7 +934,6 @@ GameObject:
   - component: {fileID: 709335616}
   - component: {fileID: 709335615}
   - component: {fileID: 709335614}
-  - component: {fileID: 709335613}
   m_Layer: 5
   m_Name: quitButtonPauseScreen
   m_TagString: Untagged
@@ -990,21 +961,6 @@ RectTransform:
   m_AnchoredPosition: {x: -263, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &709335613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 709335611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b30306d8b2126764a9a7c76c4709cc3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawnManager: {fileID: 0}
-  _AudioManager: {fileID: 0}
-  _UIManager: {fileID: 0}
 --- !u!114 &709335614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1048,19 +1004,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 709335615}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 709335613}
-        m_TargetAssemblyTypeName: gameManager, Assembly-CSharp
-        m_MethodName: quitGameButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &709335615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1623,7 +1567,6 @@ GameObject:
   - component: {fileID: 850949166}
   - component: {fileID: 850949165}
   - component: {fileID: 850949164}
-  - component: {fileID: 850949163}
   m_Layer: 5
   m_Name: restartButtonPauseScreen
   m_TagString: Untagged
@@ -1651,21 +1594,6 @@ RectTransform:
   m_AnchoredPosition: {x: 231, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &850949163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 850949161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b30306d8b2126764a9a7c76c4709cc3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawnManager: {fileID: 0}
-  _AudioManager: {fileID: 0}
-  _UIManager: {fileID: 0}
 --- !u!114 &850949164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1709,19 +1637,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 850949165}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 850949163}
-        m_TargetAssemblyTypeName: gameManager, Assembly-CSharp
-        m_MethodName: playAgainButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &850949165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2012,7 +1928,6 @@ GameObject:
   - component: {fileID: 991764776}
   - component: {fileID: 991764775}
   - component: {fileID: 991764774}
-  - component: {fileID: 991764773}
   m_Layer: 5
   m_Name: resumeButtonPauseScreen
   m_TagString: Untagged
@@ -2040,21 +1955,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -2}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &991764773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 991764771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b30306d8b2126764a9a7c76c4709cc3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawnManager: {fileID: 0}
-  _AudioManager: {fileID: 0}
-  _UIManager: {fileID: 0}
 --- !u!114 &991764774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2098,19 +1998,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 991764775}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 991764773}
-        m_TargetAssemblyTypeName: gameManager, Assembly-CSharp
-        m_MethodName: displayPauseScreen
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &991764775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2468,8 +2356,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnManager: {fileID: 1005228474}
-  _AudioManager: {fileID: 0}
-  _UIManager: {fileID: 0}
+  _AudioManager: {fileID: 1756148943}
+  _UIManager: {fileID: 2003364438}
 --- !u!4 &1283144662
 Transform:
   m_ObjectHideFlags: 0
@@ -3260,7 +3148,6 @@ GameObject:
   - component: {fileID: 1570948678}
   - component: {fileID: 1570948677}
   - component: {fileID: 1570948676}
-  - component: {fileID: 1570948679}
   m_Layer: 5
   m_Name: quitGameButton
   m_TagString: Untagged
@@ -3331,19 +3218,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1570948677}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1570948679}
-        m_TargetAssemblyTypeName: gameManager, Assembly-CSharp
-        m_MethodName: quitGameButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1570948677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3382,21 +3257,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1570948674}
   m_CullTransparentMesh: 1
---- !u!114 &1570948679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1570948674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b30306d8b2126764a9a7c76c4709cc3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawnManager: {fileID: 0}
-  _AudioManager: {fileID: 0}
-  _UIManager: {fileID: 0}
 --- !u!1 &1578756185
 GameObject:
   m_ObjectHideFlags: 0
@@ -4168,6 +4028,12 @@ MonoBehaviour:
   _settingsButtonPauseScreen: {fileID: 1087207850}
   _backButtonSettingScreen: {fileID: 1578756187}
   _pauseScreen: {fileID: 1527083189}
+  _gameManager: {fileID: 1283144661}
+  _playAgainButton: {fileID: 468550313}
+  _quitGameButton: {fileID: 1570948676}
+  _quitGameFromPause: {fileID: 709335614}
+  _restartButtonFromPause: {fileID: 850949164}
+  _resumeButtonFromPause: {fileID: 991764774}
 --- !u!1001 &5307547798201074276
 PrefabInstance:
   m_ObjectHideFlags: 0
