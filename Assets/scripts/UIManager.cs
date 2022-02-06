@@ -16,6 +16,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _settingScreen;
     [SerializeField] private Button _settingsButtonPauseScreen;
     [SerializeField] private Button _backButtonSettingScreen;
+    [SerializeField] private GameObject _pauseScreen;
+
     private bool _isGameOver = false;
 
     // Start is called before the first frame update
@@ -97,4 +99,18 @@ public class UIManager : MonoBehaviour
         _settingScreen.SetActive(false);
     }
 
+    public void pauseScreenActice()
+    {
+        _pauseScreen.SetActive(true);
+    }
+
+    public void pauseScreenDisabled()
+    {
+        _pauseScreen.SetActive(false);
+    }
+
+    public bool isPauseActiveInHierarchy()
+    {
+        return _pauseScreen.activeInHierarchy;
+    }
 }

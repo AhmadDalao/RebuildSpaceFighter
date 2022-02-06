@@ -7,8 +7,9 @@ public class gameManager : MonoBehaviour
 {
     private bool _hasGameStarted = false;
     [SerializeField] private spawnManager _spawnManager;
-    [SerializeField] private GameObject _pauseScreen;
+    // [SerializeField] private GameObject _pauseScreen;
     [SerializeField] private AudioManager _AudioManager;
+    [SerializeField] private UIManager _UIManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,13 @@ public class gameManager : MonoBehaviour
         if (_AudioManager == null)
         {
             Debug.Log("gameManager.cs ::==>> _audioManager is missing");
+        }
+
+        // null check UIManager.
+        _UIManager = GameObject.Find("UI_Manager").GetComponent<UIManager>();
+        if (_UIManager == null)
+        {
+            Debug.Log("gameManager.cs ::==>> UIManager is missing");
         }
     }
 
@@ -64,27 +72,29 @@ public class gameManager : MonoBehaviour
 
     public void displayPauseScreen()
     {
-        if (!_pauseScreen.activeInHierarchy)
+        if (!_UIManager.isPauseActiveInHierarchy())
         {
             Debug.Log("game has been paused");
-            _pauseScreen.SetActive(true);
+            _UIManager.pauseScreenActice();
             _AudioManager.pauseBackgroundMusic();
             pauseGame();
         }
         else
         {
             Debug.Log("game has been unpaused");
-            _pauseScreen.SetActive(false);
+            _UIManager.pauseScreenDisabled();
             _AudioManager.playBackgroundMusic();
             unPauseGame();
         }
     }
 
+    // set time scale = 0 to pause game.
     private void pauseGame()
     {
         Time.timeScale = 0;
     }
 
+    // set time scale = 1 to unpause game.
     private void unPauseGame()
     {
         Time.timeScale = 1;
