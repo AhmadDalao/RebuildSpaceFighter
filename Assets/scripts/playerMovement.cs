@@ -176,7 +176,21 @@ public class playerMovement : MonoBehaviour
         {
             _score += 1;
         }
+        // this function will check player score and add extra life if it hits the target
+        playerGainLife();
         Debug.Log("score:: ===>>> " + _score);
+    }
+
+    private void playerGainLife()
+    {
+        if (currentScore() >= 50)
+        {
+            if (_playerLives < 3)
+            {
+                _playerLives++;
+                _score = 0;
+            }
+        }
     }
 
     public int currentScore()
