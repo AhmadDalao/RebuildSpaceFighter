@@ -3980,6 +3980,7 @@ MonoBehaviour:
   _powerUpSound: {fileID: 8300000, guid: 5ee343246919d2b4bba63ae629e95494, type: 3}
   _playerHurtSound: {fileID: 8300000, guid: a8f4f0b6d48f69247873f7d6df0299d7, type: 3}
   _backgroundMusic: {fileID: 756704081}
+  _volumeSlider: {fileID: 1595671675}
 --- !u!1 &1800031554
 GameObject:
   m_ObjectHideFlags: 0

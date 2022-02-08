@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip _powerUpSound;
     [SerializeField] private AudioClip _playerHurtSound;
     [SerializeField] private GameObject _backgroundMusic;
+    [SerializeField] private Slider _volumeSlider;
     private AudioSource _audioSource;
     // Start is called before the first frame update
     void Start()
@@ -19,7 +21,7 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        changeMusicVolume();
     }
 
     // laser sound function
@@ -62,5 +64,13 @@ public class AudioManager : MonoBehaviour
     {
         _backgroundMusic.GetComponent<AudioSource>().Play();
     }
+
+    // control the background music volume by giving it the slider value.
+    private void changeMusicVolume()
+    {
+        _backgroundMusic.GetComponent<AudioSource>().volume = _volumeSlider.value;
+    }
+
+
 
 }
