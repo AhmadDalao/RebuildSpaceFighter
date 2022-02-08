@@ -23,7 +23,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Button _quitGameFromPause;
     [SerializeField] private Button _restartButtonFromPause;
     [SerializeField] private Button _resumeButtonFromPause;
-
+    [SerializeField] private Button _returnToMainMenuButtton;
+    [SerializeField] private Button _returnToMainMenuGameOver;
     private bool _isGameOver = false;
     private Button _playButtonFromMenu;
 
@@ -81,6 +82,11 @@ public class UIManager : MonoBehaviour
         // attach listener to resume game button from paused game screen.
         _resumeButtonFromPause.GetComponent<Button>().onClick.AddListener(_gameManager.displayPauseScreen);
 
+        // attack listener to return to menu button from pasused game screen.
+        _returnToMainMenuButtton.GetComponent<Button>().onClick.AddListener(_gameManager.returnToMenu);
+
+        // attach listener to return to menu button from game over screen.
+        _returnToMainMenuGameOver.GetComponent<Button>().onClick.AddListener(_gameManager.returnToMenu);
     }
 
     // Update is called once per frame

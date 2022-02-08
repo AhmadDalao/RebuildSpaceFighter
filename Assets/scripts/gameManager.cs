@@ -65,6 +65,17 @@ public class gameManager : MonoBehaviour
         }
     }
 
+    // if the player is play scene he will be taken to main menu
+    public void returnToMenu()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            // unpause game since you were still in pause screen the game won't start
+            unPauseGame();
+        }
+    }
+
     public void hasGameStarted()
     {
         _spawnManager.gameStarted();
