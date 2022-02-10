@@ -116,6 +116,20 @@ public class playerMovement : MonoBehaviour
             _UIManager.settingScreenClose();
         }
 
+        // there is a better way to do this
+        if (Input.GetKey(KeyCode.F))
+        {
+            Debug.Log("slow motion test");
+            Time.timeScale = 0.5f;
+            _moveSpeed = 16f;
+        }
+
+        if (Input.GetKeyUp(KeyCode.F))
+        {
+            Time.timeScale = 1f;
+            _moveSpeed = 8f;
+        }
+
     }
 
     private void playerMove()
