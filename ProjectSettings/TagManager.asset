@@ -17,6 +17,7 @@ TagManager:
   - Asteroid
   - main_menu
   - play_main_menu
+  - background_music
   layers:
   - Default
   - TransparentFX

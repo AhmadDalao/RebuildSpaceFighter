@@ -71,6 +71,4 @@ public class AudioManager : MonoBehaviour
         _backgroundMusic.GetComponent<AudioSource>().volume = _volumeSlider.value;
     }
 
-
-
 }
