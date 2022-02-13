@@ -25,6 +25,7 @@ public class playerMovement : MonoBehaviour
     private bool _isTripleShotActive = false;
     private bool _isDoubleScoreActive = false;
     private int _playerScoreDoubledBy;
+    private bool _isSlowMotion = false;
 
     // Start is called before the first frame update
     void Start()
@@ -117,19 +118,30 @@ public class playerMovement : MonoBehaviour
         }
 
         // there is a better way to do this
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            Debug.Log("slow motion test");
-            Time.timeScale = 0.5f;
-            _moveSpeed = 16f;
+            _isSlowMotion = true;
+            StartCoroutine(slowMotion());
+            Debug.Log("slow motion started");
         }
 
         if (Input.GetKeyUp(KeyCode.F))
         {
             Time.timeScale = 1f;
             _moveSpeed = 8f;
+            Debug.Log("slow motion ended");
         }
 
+    }
+    private IEnumerator slowMotion()
+    {
+        while (_isSlowMotion)
+        {
+            _moveSpeed = 16f;
+            Time.timeScale = 0.5f;
+            yield return null;
+            _isSlowMotion = false;
+        }
     }
 
     private void playerMove()
