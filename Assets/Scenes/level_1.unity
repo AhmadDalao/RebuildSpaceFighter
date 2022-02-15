@@ -3349,6 +3349,10 @@ MonoBehaviour:
     type: 3}
   _gameManager: {fileID: 1283144661}
   _settingScreen: {fileID: 764460250}
+  _playerSpriteRender: {fileID: 1569735655}
+  _playerSprite: {fileID: 21300000, guid: 1d5981962683d455ba1857f592a65b02, type: 3}
+  _playerSpriteLeft: {fileID: 21300000, guid: f3346fe3e2c9e4527a394f1e99d25f1f, type: 3}
+  _playerSpriteRight: {fileID: 21300000, guid: c83085279e66140008ba22ca901f4c4b, type: 3}
 --- !u!212 &1569735655
 SpriteRenderer:
   m_ObjectHideFlags: 0

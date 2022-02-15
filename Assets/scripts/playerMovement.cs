@@ -26,6 +26,10 @@ public class playerMovement : MonoBehaviour
     private bool _isDoubleScoreActive = false;
     private int _playerScoreDoubledBy;
     private bool _isSlowMotion = false;
+    [SerializeField] private SpriteRenderer _playerSpriteRender;
+    [SerializeField] private Sprite _playerSprite;
+    [SerializeField] private Sprite _playerSpriteLeft;
+    [SerializeField] private Sprite _playerSpriteRight;
 
     // Start is called before the first frame update
     void Start()
@@ -125,6 +129,7 @@ public class playerMovement : MonoBehaviour
             Debug.Log("slow motion started");
         }
 
+        // stop slow motion once player un-hold F button
         if (Input.GetKeyUp(KeyCode.F))
         {
             Time.timeScale = 1f;
@@ -170,11 +175,35 @@ public class playerMovement : MonoBehaviour
         {
             transform.position = new Vector3(12f, transform.position.y, 0);
         }
+
         if (transform.position.x > 12f)
         {
             transform.position = new Vector3(-12f, transform.position.y, 0);
         }
 
+        // change the sprit to the left sprit to give the imprison of player moving to the left.
+        // Also return the original  sprite once button is up ( ideal )
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            _playerSpriteRender.sprite = _playerSpriteLeft;
+        }
+
+        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow))
+        {
+            _playerSpriteRender.sprite = _playerSprite;
+        }
+
+        // change the sprit to the right sprit to give the imprison of player moving to the right.
+        // Also return the original  sprite once button is up ( ideal )
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            _playerSpriteRender.sprite = _playerSpriteRight;
+        }
+
+        if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            _playerSpriteRender.sprite = _playerSprite;
+        }
     }
 
     private void laserFire()
